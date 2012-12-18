@@ -7,9 +7,6 @@ class RobotDemo : public SimpleRobot
 	// Joysticks
 	Joystick joystick1;
 	Joystick joystick2;
-
-	// Drive Motors
-	RobotDrive driveMotors;
 	
 	CANJaguar turret;
 	Victor bridgeManipulatorMotor;
@@ -46,9 +43,7 @@ public:
 	RobotDemo(void):
 		joystick1(1),
 		joystick2(2),
-		
-		driveMotors(8,7,10,6),
-		
+				
 		turret(17),
 		bridgeManipulatorMotor(4),
 		bridgeLock(9),
@@ -72,12 +67,6 @@ public:
 		thumb2(10),
 		thumb3(11)
 	{
-		driveMotors.SetExpiration(0.1);
-		// Motor Invertions
-		driveMotors.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
-		driveMotors.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
-		driveMotors.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
-		driveMotors.SetInvertedMotor(RobotDrive::kRearRightMotor, true);
 		
 		shooterTop.SetSpeedReference(CANJaguar::kSpeedRef_Encoder);
 		shooterBottom.SetSpeedReference(CANJaguar::kSpeedRef_Encoder);
@@ -110,16 +99,6 @@ public:
 		bool shooterOverride = false;
 		
 		while(IsOperatorControl() and !IsDisabled()){
-			// Drive code
-			float axis1 = joystick1.GetRawAxis(1);
-			float axis2 = joystick1.GetRawAxis(2);
-			float axis4 = joystick1.GetRawAxis(4);
-			
-			axis1 = deadband(axis1);
-			axis2 = deadband(axis2);
-			axis4 = deadband(axis4);
-			
-			driveMotors.MecanumDrive_Cartesian(axis1, axis2, axis4);
 			
 			// Bridge Manipuator code
 			bool bridgeButton = joystick1.GetRawButton(5);
