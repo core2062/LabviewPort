@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "WPILib.h"
 
 class CoreSubsystem{
 	public:
@@ -11,7 +12,7 @@ class CoreSubsystem{
 	}
 	
 	//Called sequentially during loop, interleaved with other subsystems
-	void teleop_joystick(void){
+	void teleop_joystick(Joystick joystick1, Joystick joystick2){
 		printf("Unimplemented teleop_joystick");
 	}
 	void teleop_main(void){
