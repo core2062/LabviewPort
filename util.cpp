@@ -8,15 +8,15 @@ double deadband(double motorVal, double range = .2)
 	return motorVal;
 }
 
-double fence(double x)
+double fence(double x, double upper = 1, double lower = -1)
 {
-	if(x < -1)
+	if(x < lower)
 	{
-		x = -1;
+		x = lower;
 	} 
-	else if(x > 1)
+	else if(x > upper)
 	{
-		x = 1;
+		x = upper;
 	}
 	
 	return x;
