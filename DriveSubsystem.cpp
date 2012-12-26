@@ -26,7 +26,7 @@ public:
 	
 	void teleop_init(void){}
 		
-	void teleop_joystick(Joystick joystick1, Joystick joystick2)
+	void teleop_joystick(Joystick& joystick1, Joystick& joystick2)
 	{
 		axis1 = joystick1.GetRawAxis(1);
 		axis2 = joystick1.GetRawAxis(2);

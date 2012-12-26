@@ -30,7 +30,7 @@ public:
 		
 	void teleop_init(void){}
 		
-	void teleop_joystick(Joystick joystick1, Joystick joystick2)
+	void teleop_joystick(Joystick& joystick1, Joystick& joystick2)
 	{
 		axis3 = -joystick2.GetRawAxis(3);
 		button7 = joystick2.GetRawButton(7);

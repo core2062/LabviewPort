@@ -25,7 +25,7 @@ public:
 		
 	}
 		
-	void teleop_joystick(Joystick joystick1, Joystick joystick2)
+	void teleop_joystick(Joystick& joystick1, Joystick& joystick2)
 	{
 		button1 = joystick2.GetRawButton(5);
 	}
