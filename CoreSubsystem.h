@@ -7,6 +7,8 @@ class CoreSubsystem{
 	
 	CoreSubsystem(void);
 	
+	virtual ~CoreSubsystem(void){};	// Suppresses GNU GCC warning. Can be removed under GCC version 4.3
+	
 	// Called before loop at start of Teleop period
 	virtual void teleop_init(void);
 	
