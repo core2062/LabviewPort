@@ -33,6 +33,6 @@ void DriveSubsystem::teleop_main(void)
 
 void DriveSubsystem::teleop_motors(void)
 {
-	driveMotors.MecanumDrive_Cartesian(axis1, axis2, axis4);
+	driveMotors.MecanumDrive_Cartesian(axis1, axis4, axis2);
 }
 

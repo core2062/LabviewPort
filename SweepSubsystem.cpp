@@ -4,8 +4,8 @@
 #include "SweepSubsystem.h"
 
 SweepSubsystem::SweepSubsystem(void):
-	rightMotor(1),
-	leftMotor(2)
+	rightMotor(5),
+	leftMotor(3)
 {
 	button1 = false;
 	speed = 0;

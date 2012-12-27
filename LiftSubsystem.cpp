@@ -2,7 +2,6 @@
 #include "WPILib.h"
 #include "util.h"
 #include "LiftSubsystem.h"
-
 	
 LiftSubsystem::LiftSubsystem(void):
 	frontMotor(1),
