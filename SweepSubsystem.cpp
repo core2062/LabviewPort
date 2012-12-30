@@ -8,7 +8,7 @@ SweepSubsystem::SweepSubsystem(void):
 	leftMotor(3)
 {
 	name = "Sweep";
-	button1 = false;
+	sweep_button = false;
 	speed = 0;
 }
 
@@ -17,14 +17,14 @@ void SweepSubsystem::teleop_init(void)
 	
 }
 	
-void SweepSubsystem::teleop_joystick(Joystick& joystick1, Joystick& joystick2)
+void SweepSubsystem::teleop_joystick(COREJoystick& joystick)
 {
-	button1 = joystick2.GetRawButton(5);
+	sweep_button = joystick.sweeper();
 }
 
 void SweepSubsystem::teleop_main(void)
 {
-	speed = button1 ? 0.75 : 0;
+	speed = sweep_button ? 0.75 : 0;
 }
 
 void SweepSubsystem::teleop_motors(void)

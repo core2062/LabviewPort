@@ -7,12 +7,12 @@ class TurretSubsystem : public CORESubsystem{
 	DigitalInput leftLimit;
 	DigitalInput rightLimit;
 	
-	bool button7;
+	bool is_autoaim;
 	bool leftValue;
 	bool rightValue;
 	float speed;
 	float gain;
-	float axis3;	
+	float rotation;	
 	
 public:
 	std::string name;
@@ -22,7 +22,7 @@ public:
 	void teleop_init(void);
 		
 		//Called sequentially during loop, interleaved with other subsystems
-	void teleop_joystick(Joystick& joystick1, Joystick& joystick2);
+	void teleop_joystick(COREJoystick& joystick);
 	void teleop_main(void);
 	void teleop_motors(void);
 };

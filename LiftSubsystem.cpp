@@ -8,7 +8,7 @@ LiftSubsystem::LiftSubsystem(void):
 	backMotor(2)
 {
 	name = "Lift";
-	button5 = false;
+	lift_up = false;
 	speed = 0;
 }
 
@@ -17,14 +17,14 @@ void LiftSubsystem::teleop_init(void)
 	
 }
 	
-void LiftSubsystem::teleop_joystick(Joystick& joystick1, Joystick& joystick2)
+void LiftSubsystem::teleop_joystick(COREJoystick& joystick)
 {
-	button5 = joystick2.GetRawButton(5);
+	lift_up = joystick.lift_up();
 }
 
 void LiftSubsystem::teleop_main(void)
 {
-	speed = button5 ? -1 : 0;
+	speed = lift_up ? -1 : 0;
 }
 
 void LiftSubsystem::teleop_motors(void)

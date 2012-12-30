@@ -15,10 +15,10 @@ TurretSubsystem::TurretSubsystem(void):
 	
 void TurretSubsystem::teleop_init(void){}
 	
-void TurretSubsystem::teleop_joystick(Joystick& joystick1, Joystick& joystick2)
+void TurretSubsystem::teleop_joystick(COREJoystick& joystick)
 {
-	axis3 = -joystick2.GetRawAxis(3);
-	button7 = joystick2.GetRawButton(7);
+	rotation = joystick.rotate_turret();
+	is_autoaim = joystick.turret_is_autoaim();
 	leftValue = leftLimit.Get();
 	rightValue= rightLimit.Get();
 	
@@ -26,10 +26,10 @@ void TurretSubsystem::teleop_joystick(Joystick& joystick1, Joystick& joystick2)
 
 void TurretSubsystem::teleop_main(void)
 {
-	axis3 = deadband(axis3);
-	axis3 = axis3 * gain;
+	rotation = deadband(rotation);
+	rotation = rotation * gain;
 	
-	if(!button7)
+	if(is_autoaim)
 	{
 		//Vision code?
 	}
@@ -38,13 +38,13 @@ void TurretSubsystem::teleop_main(void)
 	{
 		speed = 0;
 	}
-	else if (axis3 > 0)
+	else if (rotation > 0)
 	{
-		speed = rightValue ? 0 : axis3;
+		speed = rightValue ? 0 : rotation;
 	}
-	else if (axis3 < 0)
+	else if (rotation < 0)
 	{
-		speed = leftValue ? 0 : axis3;
+		speed = leftValue ? 0 : rotation;
 	}
 }
 

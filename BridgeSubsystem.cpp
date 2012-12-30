@@ -19,8 +19,8 @@ void BridgeSubsystem::teleop_init(void){
 }
 	
 //Called sequentially during loop, interleaved with other subsystems
-void BridgeSubsystem::teleop_joystick(Joystick& joystick1, Joystick& joystick2){
-	bridgeButton = joystick1.GetRawButton(5);
+void BridgeSubsystem::teleop_joystick(COREJoystick& joystick){
+	bridgeButton = joystick.bridge_manip();
 }
 void BridgeSubsystem::teleop_main(void){
 	bridgeOutput = 0;
@@ -32,7 +32,6 @@ void BridgeSubsystem::teleop_main(void){
 	}
 }
 void BridgeSubsystem::teleop_motors(void){
-
 	if ((ds->GetMatchTime() > 15.5) and (bTimer.Get() >= 0.5)){
 		bridgeManipulatorMotor.SetSpeed(bridgeOutput);
 	}

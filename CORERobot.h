@@ -1,4 +1,5 @@
 #include "CORESubsystem.h"
+#include "COREJoystick.h"
 #include <vector>
 #ifndef COREROBOT_H
 #define COREROBOT_H
@@ -15,7 +16,7 @@ public:
 	
 	void teleop_init(void);
 	
-	void teleop(Joystick& joystick);
+	void teleop(COREJoystick& joystick);
 };
 
 #endif

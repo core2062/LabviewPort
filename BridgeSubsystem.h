@@ -22,7 +22,7 @@ public:
 	
 	void teleop_init(void);
 	
-	void teleop_joystick(Joystick& joystick1, Joystick& joystick2);
+	void teleop_joystick(COREJoystick& joystick);
 	void teleop_main(void);
 	void teleop_motors(void);
 };

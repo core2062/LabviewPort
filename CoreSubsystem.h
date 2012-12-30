@@ -1,5 +1,6 @@
-#import "WPILib.h"
-#import <string>
+#include "WPILib.h"
+#include "COREJoystick.h"
+#include <string>
 #ifndef CORESUBSYSTEM_H
 #define CORESUBSYSTEM_H
 
@@ -15,7 +16,7 @@ class CORESubsystem{
 	virtual void teleop_init(void);
 	
 	//Called sequentially during loop, interleaved with other subsystems
-	virtual void teleop_joystick(Joystick& joystick1, Joystick& joystick2);
+	virtual void teleop_joystick(COREJoystick& joystick);
 	virtual void teleop_main(void);
 	virtual void teleop_motors(void);
 };

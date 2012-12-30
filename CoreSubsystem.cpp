@@ -13,7 +13,7 @@ void CORESubsystem::teleop_init(void){
 }
 
 //Called sequentially during loop, interleaved with other subsystems
-void CORESubsystem::teleop_joystick(Joystick& joystick1, Joystick& joystick2){
+void CORESubsystem::teleop_joystick(COREJoystick& joystick){
 	printf("Unimplemented teleop_joystick\n");
 }
 void CORESubsystem::teleop_main(void){

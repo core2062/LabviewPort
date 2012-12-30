@@ -1,5 +1,6 @@
 #include "CORESubsystem.h"
 #include "DriveSubsystem.h"
+#include "COREJoystick.h"
 #include "WPILib.h"
 #include "util.h"
 
@@ -18,22 +19,22 @@ DriveSubsystem::DriveSubsystem(void):
 
 void DriveSubsystem::teleop_init(void){}
 	
-void DriveSubsystem::teleop_joystick(Joystick& joystick1, Joystick& joystick2)
+void DriveSubsystem::teleop_joystick(COREJoystick& joystick)
 {
-	axis1 = joystick1.GetRawAxis(1);
-	axis2 = joystick1.GetRawAxis(2);
-	axis4 = joystick1.GetRawAxis(4);
+	drive_x = joystick.drive_x();
+	drive_rotation = joystick.drive_rotation();
+	drive_y = joystick.drive_y();
 }
 
 void DriveSubsystem::teleop_main(void)
 {
-	axis1 = deadband(axis1);
-	axis2 = deadband(axis2);
-	axis4 = deadband(axis4);
+	drive_x = deadband(drive_x);
+	drive_rotation = deadband(drive_rotation);
+	drive_y = deadband(drive_y);
 }
 
 void DriveSubsystem::teleop_motors(void)
 {
-	driveMotors.MecanumDrive_Cartesian(axis1, axis4, axis2);
+	driveMotors.MecanumDrive_Cartesian(drive_x, drive_y, drive_rotation);
 }
 

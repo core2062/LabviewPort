@@ -21,7 +21,7 @@
                 <stringAttribute value="-I$(WIND_BASE)/target/h/WPILib"/>
             </listAttribute>
             <listAttribute key="BLD::Info|Incl|PPC603gnu">
-                <stringAttribute value="-I$(WIND_BASE)/target/h/WPILib"/>
+                <stringAttribute value="-IC:/WindRiver/WPILib/WPILib"/>
                 <stringAttribute value="-I$(WIND_BASE)/target/h"/>
                 <stringAttribute value="-I$(WIND_BASE)/target/h/wrn/coreip"/>
             </listAttribute>

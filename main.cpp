@@ -1,20 +1,19 @@
-#include "WPILib.h"
-#include "util.h"
 #include <string>
 #include <stdio.h>
-#include "CORERobot.h"
 
-#include "DriveSubsystem.h"
-#include "TurretSubsystem.h"
-#include "LiftSubsystem.h"
-#include "SweepSubsystem.h"
-#include "BridgeSubsystem.h"
-#define SSNUM 5
+#include "WPILib.h"
+
+#include "CORERobot.h"
+#include "COREJoystick.h"
+#include "util.h"
+#include "Subsystems.h"
+
+
+/*#define SSNUM 5*/
 
 class RobotDemo : public SimpleRobot
 {
-	Joystick joystick1;
-	Joystick joystick2;
+	COREJoystick joystick;
 	
 	DriveSubsystem drive;
 	TurretSubsystem turret;
@@ -26,8 +25,7 @@ class RobotDemo : public SimpleRobot
 	CORERobot robot;
 public:
 	RobotDemo(void):
-		joystick1(1),
-		joystick2(2),
+		joystick(1,2),
 		drive(),
 		turret(),
 		lift(),
@@ -66,7 +64,7 @@ public:
 		
 		while(IsOperatorControl() and !IsDisabled()){
 			
-			robot.teleop(joystick1);
+			robot.teleop(joystick);
 			
 			
 			////////////////////////////
