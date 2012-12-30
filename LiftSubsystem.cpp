@@ -1,4 +1,4 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 #include "WPILib.h"
 #include "util.h"
 #include "LiftSubsystem.h"
@@ -7,6 +7,7 @@ LiftSubsystem::LiftSubsystem(void):
 	frontMotor(1),
 	backMotor(2)
 {
+	name = "Lift";
 	button5 = false;
 	speed = 0;
 }

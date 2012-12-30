@@ -1,6 +1,6 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 
-class SweepSubsystem : public CoreSubsystem{
+class SweepSubsystem : public CORESubsystem{
 
 	Jaguar	rightMotor;
 	Jaguar	leftMotor;
@@ -8,7 +8,8 @@ class SweepSubsystem : public CoreSubsystem{
 	float	speed;
 	
 public:
-	
+	std::string name;
+
 	SweepSubsystem(void);
 	
 	void teleop_init(void);

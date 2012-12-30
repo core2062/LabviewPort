@@ -1,7 +1,7 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 #include "WPILib.h"
 
-class DriveSubsystem : public CoreSubsystem{
+class DriveSubsystem : public CORESubsystem{
 	// Drive Motors
 	RobotDrive driveMotors;
 	
@@ -11,6 +11,7 @@ class DriveSubsystem : public CoreSubsystem{
 	
 public:
 	
+	std::string name;
 	DriveSubsystem(void);
 	
 	// Called before loop at start of Teleop period

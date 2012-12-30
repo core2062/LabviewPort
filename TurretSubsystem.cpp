@@ -1,4 +1,4 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 #include "WPILib.h"
 #include "util.h"
 #include "TurretSubsystem.h"
@@ -8,6 +8,7 @@ TurretSubsystem::TurretSubsystem(void):
 	leftLimit(6),
 	rightLimit(7)
 {
+	name = "Turret";
 	speed = 0;
 	gain = .5;
 }

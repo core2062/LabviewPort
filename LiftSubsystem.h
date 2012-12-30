@@ -1,6 +1,6 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 
-class LiftSubsystem : public CoreSubsystem{
+class LiftSubsystem : public CORESubsystem{
 
 	Jaguar	frontMotor;
 	Jaguar	backMotor;
@@ -8,6 +8,7 @@ class LiftSubsystem : public CoreSubsystem{
 	float	speed;
 	
 public:
+	std::string name;
 	LiftSubsystem();
 	
 	void teleop_init(void);

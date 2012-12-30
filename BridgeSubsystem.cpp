@@ -1,4 +1,4 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 #include "WPILib.h"
 #include "BridgeSubsystem.h"
 
@@ -8,7 +8,10 @@ BridgeSubsystem::BridgeSubsystem(void):
 	bridgeSwitchTop(4),
 	bridgeSwitchBtm(5),
 	bTimer()
-{ds = DriverStation::GetInstance();};
+{
+	name = "Bridge";
+	ds = DriverStation::GetInstance();
+};
 	
 // Called before loop at start of Teleop period
 void BridgeSubsystem::teleop_init(void){

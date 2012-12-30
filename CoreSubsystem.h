@@ -1,13 +1,15 @@
 #import "WPILib.h"
+#import <string>
 #ifndef CORESUBSYSTEM_H
 #define CORESUBSYSTEM_H
 
-class CoreSubsystem{
+class CORESubsystem{
 	public:
 	
-	CoreSubsystem(void);
+	std::string name;
+	CORESubsystem(void);
 	
-	virtual ~CoreSubsystem(void){};	// Suppresses GNU GCC warning. Can be removed under GCC version 4.3
+	virtual ~CORESubsystem(void){};	// Suppresses GNU GCC warning. Can be removed under GCC version 4.3
 	
 	// Called before loop at start of Teleop period
 	virtual void teleop_init(void);

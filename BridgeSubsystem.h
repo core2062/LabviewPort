@@ -1,6 +1,6 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 
-class BridgeSubsystem : public CoreSubsystem{
+class BridgeSubsystem : public CORESubsystem{
 	Victor bridgeManipulatorMotor;
 	Servo bridgeLock;
 	
@@ -16,7 +16,8 @@ class BridgeSubsystem : public CoreSubsystem{
 	
 	DriverStation * ds;
 public:
-	
+	std::string name;
+
 	BridgeSubsystem(void);
 	
 	void teleop_init(void);

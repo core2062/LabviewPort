@@ -1,6 +1,6 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 
-class TurretSubsystem : public CoreSubsystem{
+class TurretSubsystem : public CORESubsystem{
 
 	CANJaguar motor;
 	
@@ -15,7 +15,8 @@ class TurretSubsystem : public CoreSubsystem{
 	float axis3;	
 	
 public:
-	
+	std::string name;
+
 	TurretSubsystem(void);
 	
 	void teleop_init(void);

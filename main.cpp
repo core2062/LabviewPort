@@ -2,13 +2,14 @@
 #include "util.h"
 #include <string>
 #include <stdio.h>
+#include "CORERobot.h"
 
 #include "DriveSubsystem.h"
 #include "TurretSubsystem.h"
 #include "LiftSubsystem.h"
 #include "SweepSubsystem.h"
 #include "BridgeSubsystem.h"
-#define SSNUM 1
+#define SSNUM 5
 
 class RobotDemo : public SimpleRobot
 {
@@ -21,7 +22,8 @@ class RobotDemo : public SimpleRobot
 	SweepSubsystem sweep;
 	BridgeSubsystem bridge;
 	
-	CoreSubsystem *subsystems [SSNUM];
+//	CORESubsystem *subsystems [SSNUM];
+	CORERobot robot;
 public:
 	RobotDemo(void):
 		joystick1(1),
@@ -30,13 +32,14 @@ public:
 		turret(),
 		lift(),
 		sweep(),
-		bridge()
+		bridge(),
+		robot()
 	{
-		subsystems[0] = &drive;
-		subsystems[1] = &turret;
-		subsystems[2] = &lift;
-		subsystems[3] = &sweep;
-		subsystems[4] = &bridge;
+		robot.add(drive);
+		robot.add(turret);
+		robot.add(lift);
+		robot.add(sweep);
+		robot.add(bridge);
 	}
 
 	void Autonomous(void)
@@ -51,11 +54,7 @@ public:
 		wd.SetEnabled(true);
 		wd.SetExpiration(1);
 		
-		for (int i = 0; i < SSNUM; ++i) {
-			subsystems[i]->teleop_init();
-			if(check_and_break("init ", i)){return;}
-			wd.Feed();
-		}
+		
 		
 //		drive.teleop_init();
 //		turret.teleop_init();
@@ -63,43 +62,58 @@ public:
 //		sweep.teleop_init();
 //		bridge.teleop_init();
 		
+		robot.teleop_init();
 		
 		while(IsOperatorControl() and !IsDisabled()){
-			for (int i = 0; i < SSNUM; ++i){
-				subsystems[i]->teleop_joystick(joystick1,joystick2);
-				if(check_and_break("joystick ", i)){return;}
-				wd.Feed();
-			}
-			for (int i = 0; i < SSNUM; ++i){
-				subsystems[i]->teleop_main();
-				if(check_and_break("main ", i)){return;}
-				wd.Feed();
-			}
-			for (int i = 0; i < SSNUM; ++i){
-				subsystems[i]->teleop_motors();
-				if(check_and_break("motors ", i)){return;}
-				wd.Feed();
-			}
-//			
-//			drive.teleop_joystick(joystick1, joystick2);
-//			turret.teleop_joystick(joystick1, joystick2);
-//			lift.teleop_joystick(joystick1, joystick2);
-//			sweep.teleop_joystick(joystick1, joystick2);
-//			bridge.teleop_joystick(joystick1, joystick2);
-//			
-//			drive.teleop_main();
-//			turret.teleop_main();
-//			lift.teleop_main();
-//			sweep.teleop_main();
-//			bridge.teleop_main();
-//			
-//			drive.teleop_motors();
-//			turret.teleop_motors();
-//			lift.teleop_motors();
-//			sweep.teleop_motors();
-//			bridge.teleop_motors();
 			
-//			wd.Feed();
+			robot.teleop(joystick1);
+			
+			
+			////////////////////////////
+			// Array based for loops. 
+			////////////////////////////
+			
+			//	for (int i = 0; i < SSNUM; ++i){
+			//		subsystems[i]->teleop_joystick(joystick1,joystick2);
+			//		if(check_and_break("joystick ", i)){return;}
+			//		wd.Feed();
+			//	}
+			//	for (int i = 0; i < SSNUM; ++i){
+			//		subsystems[i]->teleop_main();
+			//		if(check_and_break("main ", i)){return;}
+			//		wd.Feed();
+			//	}
+			//	for (int i = 0; i < SSNUM; ++i){
+			//		subsystems[i]->teleop_motors();
+			//		if(check_and_break("motors ", i)){return;}
+			//		wd.Feed();
+			//	}
+			
+			//////////////////
+			// Static calls. 
+			//////////////////
+			
+			
+			//	drive.teleop_joystick(joystick1, joystick2);
+			//	turret.teleop_joystick(joystick1, joystick2);
+			//	lift.teleop_joystick(joystick1, joystick2);
+			//	sweep.teleop_joystick(joystick1, joystick2);
+			//	bridge.teleop_joystick(joystick1, joystick2);
+			//	
+			//	drive.teleop_main();
+			//	turret.teleop_main();
+			//	lift.teleop_main();
+			//	sweep.teleop_main();
+			//	bridge.teleop_main();
+			//	
+			//	drive.teleop_motors();
+			//	turret.teleop_motors();
+			//	lift.teleop_motors();
+			//	sweep.teleop_motors();
+			//	bridge.teleop_motors();
+			
+			
+			wd.Feed();
 			
 			Wait(.005);
 		}

@@ -1,4 +1,4 @@
-#include "CoreSubsystem.h"
+#include "CORESubsystem.h"
 #include "WPILib.h"
 #include "util.h"
 #include "SweepSubsystem.h"
@@ -7,6 +7,7 @@ SweepSubsystem::SweepSubsystem(void):
 	rightMotor(5),
 	leftMotor(3)
 {
+	name = "Sweep";
 	button1 = false;
 	speed = 0;
 }
