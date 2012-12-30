@@ -8,9 +8,9 @@ public:
 	Joystick joystick1;
 	Joystick joystick2;
 	
-	COREJoystick(int port1, int port2):
-		joystick1(port1),
-		joystick2(port2){}
+	COREJoystick():
+		joystick1(1),
+		joystick2(2){}
 	
 	float drive_x(void){return joystick1.GetRawAxis(1);}
 	float drive_rotation(void){return joystick1.GetRawAxis(4);}

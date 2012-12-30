@@ -25,7 +25,7 @@ class RobotDemo : public SimpleRobot
 	CORERobot robot;
 public:
 	RobotDemo(void):
-		joystick(1,2),
+		joystick(),
 		drive(),
 		turret(),
 		lift(),
