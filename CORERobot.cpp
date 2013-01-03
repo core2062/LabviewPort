@@ -14,22 +14,22 @@ std::vector<CORESubsystem>& CORERobot::get_subsystems(void){
 
 void CORERobot::teleop_init(void){
 	for(std::vector<CORESubsystem>::iterator it = subsystems.begin(); it != subsystems.end(); ++it){
+		cout << "tele init " << it->name << endl;
 		it->teleop_init();
-		cout << "tele init " << it->name;
 	}
 }
 
 void CORERobot::teleop(COREJoystick& joystick){
 	for (std::vector<CORESubsystem>::iterator it = subsystems.begin(); it != subsystems.end(); ++it){
+		cout << "tele inputs " << it->name << endl;
 		it->teleop_joystick(joystick);
-		cout << "tele inputs " << it->name;
 	}
 	for (std::vector<CORESubsystem>::iterator it = subsystems.begin(); it != subsystems.end(); ++it){
+		cout << "tele logic " << it->name << endl;
 		it->teleop_main();
-		cout << "tele logic " << it->name;
 	}
 	for (std::vector<CORESubsystem>::iterator it = subsystems.begin(); it != subsystems.end(); ++it){
+		cout << "tele outputs " << it->name << endl;
 		it->teleop_motors();
-		cout << "tele outputs " << it->name;
 	}
 }
