@@ -2,12 +2,15 @@
 #include "WPILib.h"
 #include "util.h"
 #include "LiftSubsystem.h"
-	
+
+std::string LiftSubsystem::name(void){
+	return "Lift";
+}
+
 LiftSubsystem::LiftSubsystem(void):
 	frontMotor(1),
 	backMotor(2)
 {
-	name = "Lift";
 	lift_up = false;
 	speed = 0;
 }

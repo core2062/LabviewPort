@@ -16,7 +16,7 @@ class BridgeSubsystem : public CORESubsystem{
 	
 	DriverStation * ds;
 public:
-	std::string name;
+	std::string name(void);
 
 	BridgeSubsystem(void);
 	

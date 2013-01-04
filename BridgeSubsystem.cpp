@@ -2,6 +2,10 @@
 #include "WPILib.h"
 #include "BridgeSubsystem.h"
 
+std::string BridgeSubsystem::name(void){
+	return "Bridge";
+}
+
 BridgeSubsystem::BridgeSubsystem(void):
 	bridgeManipulatorMotor(4),
 	bridgeLock(9),
@@ -9,7 +13,6 @@ BridgeSubsystem::BridgeSubsystem(void):
 	bridgeSwitchBtm(5),
 	bTimer()
 {
-	name = "Bridge";
 	ds = DriverStation::GetInstance();
 };
 	

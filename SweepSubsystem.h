@@ -8,8 +8,7 @@ class SweepSubsystem : public CORESubsystem{
 	float	speed;
 	
 public:
-	std::string name;
-
+	std::string name(void);
 	SweepSubsystem(void);
 	
 	void teleop_init(void);

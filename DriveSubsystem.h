@@ -12,7 +12,7 @@ class DriveSubsystem : public CORESubsystem{
 	
 public:
 	
-	std::string name;
+	std::string name(void);
 	DriveSubsystem(void);
 	
 	// Called before loop at start of Teleop period

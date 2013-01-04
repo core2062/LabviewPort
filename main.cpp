@@ -112,7 +112,7 @@ public:
 			
 			
 			wd.Feed();
-			
+			cout << endl << endl;
 			Wait(.005);
 		}
 		

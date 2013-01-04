@@ -4,11 +4,13 @@
 #include "WPILib.h"
 #include "util.h"
 
+std::string DriveSubsystem::name(void){
+	return "Drive";
+}
 
 DriveSubsystem::DriveSubsystem(void):
 	driveMotors(8,7,10,6)
-{	
-	name = "Drive";
+{
 	driveMotors.SetExpiration(0.1);
 	// Motor Invertions
 	driveMotors.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);

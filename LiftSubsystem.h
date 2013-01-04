@@ -8,7 +8,8 @@ class LiftSubsystem : public CORESubsystem{
 	float	speed;
 	
 public:
-	std::string name;
+	std::string name(void);
+	
 	LiftSubsystem();
 	
 	void teleop_init(void);

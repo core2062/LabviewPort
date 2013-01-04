@@ -15,7 +15,7 @@ class TurretSubsystem : public CORESubsystem{
 	float rotation;	
 	
 public:
-	std::string name;
+	std::string name(void);
 
 	TurretSubsystem(void);
 	

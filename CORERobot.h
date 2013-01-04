@@ -5,14 +5,14 @@
 #define COREROBOT_H
 
 class CORERobot{
-	std::vector<CORESubsystem> subsystems;
+	std::vector<CORESubsystem*> subsystems;
 	
 public:
 	CORERobot();
 	
 	void add(CORESubsystem& subsystem);
 	
-	std::vector<CORESubsystem>& get_subsystems(void);
+	std::vector<CORESubsystem*>& get_subsystems(void);
 	
 	void teleop_init(void);
 	

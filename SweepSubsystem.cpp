@@ -3,11 +3,14 @@
 #include "util.h"
 #include "SweepSubsystem.h"
 
+std::string SweepSubsystem::name(void){
+	return "sweep";
+}
+
 SweepSubsystem::SweepSubsystem(void):
 	rightMotor(5),
 	leftMotor(3)
 {
-	name = "Sweep";
 	sweep_button = false;
 	speed = 0;
 }

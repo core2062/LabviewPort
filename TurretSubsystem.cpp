@@ -3,12 +3,15 @@
 #include "util.h"
 #include "TurretSubsystem.h"
 
+std::string TurretSubsystem::name(void){
+	return "Turret";
+}
+
 TurretSubsystem::TurretSubsystem(void):
 	motor(17),
 	leftLimit(6),
 	rightLimit(7)
 {
-	name = "Turret";
 	speed = 0;
 	gain = .5;
 }

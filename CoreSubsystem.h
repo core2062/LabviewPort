@@ -5,30 +5,20 @@
 #define CORESUBSYSTEM_H
 
 class CORESubsystem{
-	public:
-	
-	std::string name;
-	CORESubsystem(void){
-		name = "undefined name";
-	}
+	public:	
+	virtual std::string name(void) = 0;
+
+	CORESubsystem(void);
 	
 	virtual ~CORESubsystem(void){};	// Suppresses GNU GCC warning. Can be removed under GCC version 4.3
 	
 	// Called before loop at start of Teleop period
-	virtual void teleop_init(void){
-		printf("Unimplemented teleop_init\n");
-	}
+	virtual void teleop_init(void) = 0;
 	
 	//Called sequentially during loop, interleaved with other subsystems
-	virtual void teleop_joystick(COREJoystick& joystick){
-		printf("Unimplemented teleop_joystick\n");
-	}
-	virtual void teleop_main(void){
-		printf("Unimplemented teleop_main\n");
-	}
-	virtual void teleop_motors(void){
-		printf("Unimplemented teleop_joystick\n");
-	}
+	virtual void teleop_joystick(COREJoystick& joystick) = 0;
+	virtual void teleop_main(void) = 0;
+	virtual void teleop_motors(void) = 0;
 };
 
 #endif
