@@ -46,6 +46,10 @@ public:
 		Wait(.005);
 	}
 
+	void RobotInit(void){
+		robot.robot_init();
+	}
+	
 	void OperatorControl(void)
 	{
 		Watchdog &wd = GetWatchdog();

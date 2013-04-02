@@ -14,6 +14,7 @@ public:
 	
 	std::vector<CORESubsystem*>& get_subsystems(void);
 	
+	void robot_init(void);
 	void teleop_init(void);
 	
 	void teleop(COREJoystick& joystick);

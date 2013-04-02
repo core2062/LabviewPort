@@ -13,6 +13,7 @@ class CORESubsystem{
 	virtual ~CORESubsystem(void){};	// Suppresses GNU GCC warning. Can be removed under GCC version 4.3
 	
 	// Called before loop at start of Teleop period
+	virtual void robot_init(void);
 	virtual void teleop_init(void) = 0;
 	
 	//Called sequentially during loop, interleaved with other subsystems

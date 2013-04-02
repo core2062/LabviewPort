@@ -6,6 +6,9 @@ std::string CORESubsystem::name(void){
 	return "undefined name";
 }
 
+void CORESubsystem::robot_init(void){
+	printf("Unimplemented robot_init\n");
+}
 void CORESubsystem::teleop_init(void){
 	printf("Unimplemented teleop_init\n");
 }

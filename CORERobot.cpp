@@ -20,6 +20,14 @@ void CORERobot::teleop_init(void){
 	}
 }
 
+void CORERobot::robot_init(void){
+	std::vector<CORESubsystem*>::iterator it;
+		for(it = subsystems.begin(); it != subsystems.end(); ++it){
+			cout << "robot init " << (*it)->name() << endl;
+			(*it)->robot_init();
+		}
+}
+
 void CORERobot::teleop(COREJoystick& joystick){
 	std::vector<CORESubsystem*>::iterator it;
 	for (it = subsystems.begin(); it != subsystems.end(); ++it){
