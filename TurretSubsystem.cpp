@@ -8,7 +8,7 @@ std::string TurretSubsystem::name(void){
 }
 
 TurretSubsystem::TurretSubsystem(void):
-	motor(17),
+	motor(4),
 	leftLimit(6),
 	rightLimit(7)
 {

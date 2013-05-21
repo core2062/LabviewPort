@@ -2,7 +2,7 @@
 
 class TurretSubsystem : public CORESubsystem{
 
-	CANJaguar motor;
+	Jaguar motor;
 	
 	DigitalInput leftLimit;
 	DigitalInput rightLimit;

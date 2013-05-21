@@ -9,13 +9,13 @@ std::string DriveSubsystem::name(void){
 }
 
 DriveSubsystem::DriveSubsystem(void):
-	driveMotors(8,7,10,6)
+	driveMotors(9,8,6,7)
 {
 	driveMotors.SetExpiration(0.1);
 	// Motor Invertions
-	driveMotors.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
+//	driveMotors.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
+//	driveMotors.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 	driveMotors.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
-	driveMotors.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 	driveMotors.SetInvertedMotor(RobotDrive::kRearRightMotor, true);
 }
 
