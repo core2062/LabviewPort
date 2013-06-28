@@ -10,8 +10,8 @@ std::string ShootSubsystem::name(void){
 ShootSubsystem::ShootSubsystem(void):
 	top_motor(5),
 	bottom_motor(3),
-	conveyer_left(),
-	conveyer_right()
+	conveyer_left(101),
+	conveyer_right(102)
 {
 	shoot_button = false;
 	shoot_up = false;

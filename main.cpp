@@ -11,7 +11,7 @@
 
 /*#define SSNUM 5*/
 
-class RobotDemo : public SimpleRobot
+class LabviewPort : public SimpleRobot
 {
 	COREJoystick joystick;
 	
@@ -24,7 +24,7 @@ class RobotDemo : public SimpleRobot
 //	CORESubsystem *subsystems [SSNUM];
 	CORERobot robot;
 public:
-	RobotDemo(void):
+	LabviewPort(void):
 		joystick(),
 		drive(),
 		turret(),
@@ -130,5 +130,5 @@ public:
 	}
 };
 
-START_ROBOT_CLASS(RobotDemo);
+START_ROBOT_CLASS(LabviewPort);
 
