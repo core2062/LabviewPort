@@ -24,6 +24,14 @@ public:
 	bool lift_up(void){return joystick2.GetRawButton(5);}
 	
 	bool sweeper(void){return joystick2.GetRawButton(1);}
+	
+	bool shoot(void){return joystick2.GetRawButton(2);}
+	bool shooter_toggle(void){return joystick2.GetRawButton(5);}
+	bool key_speed(void){return joystick2.GetRawButton(7);}
+	bool speed_up(void){return joystick2.GetRawButton(9);}
+	bool speed_down(void){return joystick2.GetRawButton(11);}
+	bool convey_up(void) {return joystick2.GetRawButton(10);}
+	bool convey_down(void){return joystick2.GetRawButton(12);}
 };
 
 #endif

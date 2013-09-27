@@ -6,6 +6,7 @@ class ShootSubsystem : public CORESubsystem{
 	Jaguar	bottom_motor;
 	Jaguar	conveyer_left;
 	Jaguar	conveyer_right;
+	
 	bool	shoot_button;
 	bool	shoot_up;
 	bool	shoot_down;
