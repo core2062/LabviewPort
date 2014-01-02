@@ -1,7 +1,8 @@
 #include "WPILib.h"
 #include <string>
 #include <map>
-
+#ifndef JOYSTICKCACHE_H
+#define JOYSTICKCACHE_H
 namespace CORE{
 
 class JoystickCache{
@@ -32,12 +33,12 @@ public:
 	void register_axis (std::string name, int joystick, int axis);
 	void register_button(std::string name, int joystick, int button);
 	void update_cache(void);
-	double get_axis(std::string name);
-	bool get_button(std::string name);
+	double axis(std::string name);
+	bool button(std::string name);
 	Joystick& get_joystick(int axis);
 	
 	
 	
 };
 }
-
+#endif

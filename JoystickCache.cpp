@@ -16,16 +16,18 @@ void JoystickCache::update_cache(void){
 	cached_axes.clear();
 	cached_button.clear();
 	for(it = axes.begin(); it != axes.end(); ++it){
+//		printf("name: %s\n", it->first.c_str());
 		cached_axes.insert(d_cache::value_type(it->first, get_joystick(it->second.joystick).GetRawAxis(it->second.channel))); 
 	}
 	for(it = buttons.begin(); it != buttons.end(); ++it){
-		cached_button.insert(d_cache::value_type(it->first, get_joystick(it->second.joystick).GetRawAxis(it->second.channel))); 
+//		printf("name: %s\n", it->first.c_str());
+		cached_button.insert(d_cache::value_type(it->first, get_joystick(it->second.joystick).GetRawButton(it->second.channel))); 
 	}
 }
-double JoystickCache::get_axis(std::string name){
+double JoystickCache::axis(std::string name){
 	return cached_axes[name];
 }
-bool JoystickCache::get_button(std::string name){
+bool JoystickCache::button(std::string name){
 	return cached_button[name];
 }
 

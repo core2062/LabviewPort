@@ -7,22 +7,20 @@ std::string SweepSubsystem::name(void){
 	return "sweep";
 }
 
-SweepSubsystem::SweepSubsystem(void):
+SweepSubsystem::SweepSubsystem(CORERobot& robot):
+	CORESubsystem(robot),
 	rightMotor(5),
-	leftMotor(3)
-{
+	leftMotor(3){
 	sweep_button = false;
 	speed = 0;
 }
 
-void SweepSubsystem::teleop_init(void)
-{
-	
+void SweepSubsystem::teleop_init(void){
+	robot.joystick.register_button("sweep", 2, 1);
 }
 	
-void SweepSubsystem::teleop_joystick(COREJoystick& joystick)
-{
-	sweep_button = joystick.sweeper();
+void SweepSubsystem::teleop_joystick(void){
+	sweep_button = robot.joystick.button("sweep");
 }
 
 void SweepSubsystem::teleop_main(void)

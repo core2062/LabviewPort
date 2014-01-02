@@ -7,7 +7,8 @@ std::string TurretSubsystem::name(void){
 	return "Turret";
 }
 
-TurretSubsystem::TurretSubsystem(void):
+TurretSubsystem::TurretSubsystem(CORERobot& robot):
+	CORESubsystem(robot),
 	motor(4),
 	leftLimit(6),
 	rightLimit(7)
@@ -16,15 +17,16 @@ TurretSubsystem::TurretSubsystem(void):
 	gain = .5;
 }
 	
-void TurretSubsystem::teleop_init(void){}
+void TurretSubsystem::teleop_init(void){
+	robot.joystick.register_axis("turret_rotation", 1, 3);
+	robot.joystick.register_button("turret_autoaim", 1, 7);
+}
 	
-void TurretSubsystem::teleop_joystick(COREJoystick& joystick)
-{
-	rotation = joystick.rotate_turret();
-	is_autoaim = joystick.turret_is_autoaim();
+void TurretSubsystem::teleop_joystick(void){
+	rotation = robot.joystick.axis("turret_rotation");
+	is_autoaim = robot.joystick.button("turret_autoaim");
 	leftValue = leftLimit.Get();
 	rightValue= rightLimit.Get();
-	
 }
 
 void TurretSubsystem::teleop_main(void)

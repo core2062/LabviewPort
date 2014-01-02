@@ -18,11 +18,11 @@ class BridgeSubsystem : public CORESubsystem{
 public:
 	std::string name(void);
 
-	BridgeSubsystem(void);
+	BridgeSubsystem(CORERobot& robot);
 	
 	void teleop_init(void);
 	
-	void teleop_joystick(COREJoystick& joystick);
+	void teleop_joystick();
 	void teleop_main(void);
 	void teleop_motors(void);
 };

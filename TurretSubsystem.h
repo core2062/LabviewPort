@@ -17,12 +17,12 @@ class TurretSubsystem : public CORESubsystem{
 public:
 	std::string name(void);
 
-	TurretSubsystem(void);
+	TurretSubsystem(CORERobot& robot);
 	
 	void teleop_init(void);
 		
 		//Called sequentially during loop, interleaved with other subsystems
-	void teleop_joystick(COREJoystick& joystick);
+	void teleop_joystick(void);
 	void teleop_main(void);
 	void teleop_motors(void);
 };

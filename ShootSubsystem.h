@@ -1,24 +1,28 @@
 #include "CORESubsystem.h"
 
+static const float keySpeed [] = {.25, .625	};
+
 class ShootSubsystem : public CORESubsystem{
 
-	Jaguar	top_motor;
-	Jaguar	bottom_motor;
-	Jaguar	conveyer_left;
-	Jaguar	conveyer_right;
+	CANJaguar	topShooter;
+	CANJaguar	bottomShooter;
+	Jaguar	conveyerLeft;
+	Jaguar	conveyerRight;
+
+	double	topSpeed;
+	double bottomSpeed;
+	bool	active;
 	
-	bool	shoot_button;
-	bool	shoot_up;
-	bool	shoot_down;
-	float	speed;
-	
+	bool old_toggle;
+	bool old_up;
+	bool old_down;
 public:
 	std::string name(void);
-	ShootSubsystem(void);
+	ShootSubsystem(CORERobot& robot);
 	
 	void teleop_init(void);
 		
-	void teleop_joystick(COREJoystick& joystick);
+	void teleop_joystick(void);
 	void teleop_main(void);
 	void teleop_motors(void);
 };

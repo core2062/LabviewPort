@@ -1,6 +1,5 @@
 #include "CORESubsystem.h"
 #include "DriveSubsystem.h"
-#include "COREJoystick.h"
 #include "WPILib.h"
 #include "util.h"
 
@@ -8,24 +7,29 @@ std::string DriveSubsystem::name(void){
 	return "Drive";
 }
 
-DriveSubsystem::DriveSubsystem(void):
-	driveMotors(9,8,6,7)
-{
+DriveSubsystem::DriveSubsystem(CORERobot& robot):
+	CORESubsystem(robot),
+	driveMotors(6,8,9,7){
 	driveMotors.SetExpiration(0.1);
 	// Motor Invertions
 //	driveMotors.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
 //	driveMotors.SetInvertedMotor(RobotDrive::kRearLeftMotor, true);
 	driveMotors.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 	driveMotors.SetInvertedMotor(RobotDrive::kRearRightMotor, true);
+	driveMotors.SetSafetyEnabled(false);
 }
 
-void DriveSubsystem::teleop_init(void){}
+void DriveSubsystem::teleop_init(void){
+	robot.joystick.register_axis("drive_x", 1, 1);
+	robot.joystick.register_axis("drive_rotation", 1, 4);
+	robot.joystick.register_axis("drive_y", 1, 2);
+}
 	
-void DriveSubsystem::teleop_joystick(COREJoystick& joystick)
+void DriveSubsystem::teleop_joystick()
 {
-	drive_x = joystick.drive_x();
-	drive_rotation = joystick.drive_rotation();
-	drive_y = joystick.drive_y();
+	drive_x = robot.joystick.axis("drive_x");
+	drive_rotation = robot.joystick.axis("drive_rotation");
+	drive_y = robot.joystick.axis("drive_y");
 }
 
 void DriveSubsystem::teleop_main(void)

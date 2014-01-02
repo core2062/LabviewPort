@@ -1,5 +1,4 @@
 #include "CORESubsystem.h"
-#include "COREJoystick.h"
 #include "WPILib.h"
 
 class DriveSubsystem : public CORESubsystem{
@@ -13,13 +12,13 @@ class DriveSubsystem : public CORESubsystem{
 public:
 	
 	std::string name(void);
-	DriveSubsystem(void);
+	DriveSubsystem(CORERobot& robot);
 	
 	// Called before loop at start of Teleop period
 	void teleop_init(void);
 	
 	//Called sequentially during loop, interleaved with other subsystems
-	void teleop_joystick(COREJoystick& joystick);
+	void teleop_joystick(void);
 	void teleop_main(void);
 	void teleop_motors(void);
 };

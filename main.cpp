@@ -2,40 +2,33 @@
 #include <stdio.h>
 
 #include "WPILib.h"
-
-#include "CORERobot.h"
-#include "COREJoystick.h"
-#include "util.h"
 #include "Subsystems.h"
-
+#include "util.h"
 
 /*#define SSNUM 5*/
+using namespace CORE;
 
-class LabviewPort : public SimpleRobot
-{
-	COREJoystick joystick;
-	
+class LabviewPort : public SimpleRobot{
+
+	CORERobot robot;
 	DriveSubsystem drive;
 	TurretSubsystem turret;
-	LiftSubsystem lift;
+	ShootSubsystem shooter;
 	SweepSubsystem sweep;
 	BridgeSubsystem bridge;
 	
 //	CORESubsystem *subsystems [SSNUM];
-	CORERobot robot;
 public:
 	LabviewPort(void):
-		joystick(),
-		drive(),
-		turret(),
-		lift(),
-		sweep(),
-		bridge(),
-		robot()
-	{
+		robot(),
+		drive(robot),
+		turret(robot),
+		shooter(robot),
+		sweep(robot),
+		bridge(robot){
 		robot.add(drive);
 		robot.add(turret);
-		robot.add(lift);
+		robot.add(shooter);
 		robot.add(sweep);
 		robot.add(bridge);
 	}
@@ -68,7 +61,7 @@ public:
 		
 		while(IsOperatorControl() and !IsDisabled()){
 			
-			robot.teleop(joystick);
+			robot.teleop();
 			
 			
 			////////////////////////////

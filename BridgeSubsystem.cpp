@@ -6,8 +6,9 @@ std::string BridgeSubsystem::name(void){
 	return "Bridge";
 }
 
-BridgeSubsystem::BridgeSubsystem(void):
-	bridgeManipulatorMotor(4),
+BridgeSubsystem::BridgeSubsystem(CORERobot& robot):
+	CORESubsystem(robot),
+	bridgeManipulatorMotor(10),
 	bridgeLock(9),
 	bridgeSwitchTop(4),
 	bridgeSwitchBtm(5),
@@ -19,11 +20,12 @@ BridgeSubsystem::BridgeSubsystem(void):
 // Called before loop at start of Teleop period
 void BridgeSubsystem::teleop_init(void){
 	bTimer.Start();
+	robot.joystick.register_button("bridge", 1, 5);
 }
 	
 //Called sequentially during loop, interleaved with other subsystems
-void BridgeSubsystem::teleop_joystick(COREJoystick& joystick){
-	bridgeButton = joystick.bridge_manip();
+void BridgeSubsystem::teleop_joystick(){
+	bridgeButton = robot.joystick.button("bridge");
 }
 void BridgeSubsystem::teleop_main(void){
 	bridgeOutput = 0;
